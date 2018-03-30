@@ -1,0 +1,5 @@
+{
+  "plugins": ["transform-es2015-modules-commonjs"],
+  "presets": ["stage-3"],
+  "sourceMaps": "inline"
+}

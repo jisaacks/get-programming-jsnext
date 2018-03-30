@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+      <li>four</li>
+      <li>five</li>
+    </ul>
+
+    <script type="javascript">
+      var items = document.querySelectorAll('li');
+      for (var i = 0; i < 5; i++) {
+        var li = items[i];
+        li.addEventListener('click', function() {
+          alert(li.textContent + ':' + i);
+        });
+      };
+    </script>
+  </body>
+</html>

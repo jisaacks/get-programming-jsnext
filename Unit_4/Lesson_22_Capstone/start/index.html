@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman</title>
+    <style>
+    body {
+      margin: 0;
+      background: skyblue;
+      font-family: sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    #hangman {
+      margin: 100px 0;
+      text-align: center;
+    }
+    #hangman > div {
+      margin: 50px;
+    }
+    #status-display {
+      color: white;
+      font-weight: bold;
+      font-size: 36px;
+    }
+    #letter-slots span {
+      color: dodgerblue;
+      border-bottom: 3px solid white;
+      text-transform: uppercase;
+      font-size: 24px;
+      margin: 5px;
+      width: 2em;
+      display: inline-block;
+    }
+    #keyboard button, #keyboard span {
+      background: dodgerblue;
+      color: lightskyblue;
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 18px;
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer;
+      width: 2em;
+    }
+    #keyboard span {
+      opacity: .3;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="hangman">
+      <div id="status-display"></div>
+      <div id="letter-slots"></div>
+      <div id="keyboard"></div>
+    </div>
+    <script src="dest/build.js"></script>
+  </body>
+</html>

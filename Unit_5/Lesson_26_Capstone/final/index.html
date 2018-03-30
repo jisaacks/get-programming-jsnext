@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    body {
+      margin:
+
+      0;
+    }
+    .hand {
+      display: flex;
+      justify-content: center;
+      transition: all 0.6s;
+    }
+    .hand.adding {
+      transition: none;
+      transform: translate(36px);
+    }
+    .hand.adding .card:last-child {
+      transform: translate(1150px);
+      /*opacity: 0;*/
+    }
+    .card {
+      margin: 0 5px;
+      border: 1px solid #999;
+      box-shadow: 0px 1px 3px #ccc;
+      padding: 5px;
+      border-radius: 2px;
+      font-size: 36px;
+      font-weight: bold;
+      width: 50px;
+      height: 75px;
+      position: relative;
+      transition: all 0.6s;
+      transform-style: preserve-3d;
+    }
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+    .card.added {
+      transform: translate(50px);
+      /*opacity: 0;*/
+    }
+    .card .back {
+      background: #47B77E;
+      box-shadow: 0 0 25px #09A372 inset;
+      margin: 3px;
+    }
+    .card .front {
+      transform: rotateY(180deg);
+    }
+    .card .back, .card .front {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 2px; left: 2px; right: 2px; bottom: 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .diamonds  .front:before,
+    .diamonds .front:after,
+    .hearts .front:before,
+    .hearts .front:after {
+      color: red;
+    }
+    .card .front:before, .card .front:after {
+      content: attr(data-suit);
+      position: absolute;
+      font-size: 18px;
+    }
+    .card .front:before {
+      top: 0;
+      left: 5px;
+    }
+    .card .front:after {
+      bottom: 0;
+      right: 5px;
+    }
+    .score {
+      text-align: center;
+      font-size: 28px;
+      margin-top: 15px;
+      transition: all 0.6s;
+    }
+    .score:before {
+      content: 'Score: ';
+      color: #999;
+    }
+    .score.blackjack:before {
+      content: 'Blackjack: ';
+    }
+    .score.bust:before {
+      content: 'Bust: ';
+      color: #D6100D;
+    }
+    .dealer, .player {
+      border: 1px solid #ddd;
+      margin: 30px 50px;
+      padding: 20px;
+      padding-top: 50px;
+      position: relative;
+      max-width: 500px;
+    }
+    .dealer:before, .player:before {
+      content: 'Dealer';
+      position: absolute;
+      top: -10px;
+      background: white;
+      font-size: 28px;
+      padding: 0 10px;
+    }
+    .player:before {
+      content: 'You';
+    }
+    .buttons {
+      margin: 50px;
+      padding: 0 20px;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      transition: all 0.6s;
+    }
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    button {
+      background: #e3e9f3;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      color: #636973;
+      outline: none;
+      padding: 10px;
+      font-size: 24px;
+      border-radius: 4px;
+      width: 100px;
+      margin: 0 5px;
+      cursor: pointer;
+      box-shadow: 0px 0px 30px #f3f9ff inset;
+    }
+    button:hover {
+      box-shadow: 0px 0px 30px #65CFFB inset;
+      background: #4FC0FC;
+      color: #3866AA;
+    }
+    .status {
+      margin: 20px 50px;
+      padding: 0 20px;
+      max-width: 500px;
+      text-align: center;
+      font-size: 36px;
+      transition: all 0.6s;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="blackjack">
+      <div class="status hidden">nbsp;</div>
+      <div class="dealer">
+        <div class="hand"></div>
+        <div class="score hidden"></div>
+      </div>
+      <div class="player">
+        <div class="hand"></div>
+        <div class="score"></div>
+      </div>
+      <div class="buttons">
+        <button class="hit-me">Hit Me</button>
+        <button class="stay">Stay</button>
+      </div>
+    </div>
+    <script src="dest/build.js"></script>
+  </body>
+</html>
